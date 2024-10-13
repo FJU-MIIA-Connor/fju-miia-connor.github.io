@@ -3,47 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人網站</title>
+    <title>狗狗品種猜猜看</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>歡迎來到我的個人網站</h1>
-        <p>我是 Kuan，一位熱愛程式設計的人。</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#about">關於我</a></li>
-            <li><a href="#portfolio">作品集</a></li>
-            <li><a href="#contact">聯絡我</a></li>
-        </ul>
-    </nav>
-
-    <section id="about">
-        <h2>關於我</h2>
-        <p>這裡是我的簡介。我熱愛學習新技術，並且專注於網頁開發。</p>
-    </section>
-
-    <section id="portfolio">
-        <h2>作品集</h2>
-        <p>這裡展示了我過去完成的專案。</p>
-        <ul>
-            <li>專案1 - 網頁設計</li>
-            <li>專案2 - Arduino 開發</li>
-            <li>專案3 - 資料分析</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>聯絡我</h2>
-        <p>如果你對我的工作有興趣，歡迎透過以下方式聯繫我：</p>
-        <ul>
-            <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
-            <li>GitHub: <a href="https://github.com/Kuan" target="_blank">Kuan</a></li>
-        </ul>
-    </section>
-
+    <h1>猜猜看這隻狗狗的品種！</h1>
+    <div class="game-container">
+        <img id="dog-image" src="" alt="Dog" class="dog-image">
+        <div class="options">
+            <button class="option" onclick="checkAnswer(this)">品種 1</button>
+            <button class="option" onclick="checkAnswer(this)">品種 2</button>
+            <button class="option" onclick="checkAnswer(this)">品種 3</button>
+            <button class="option" onclick="checkAnswer(this)">品種 4</button>
+        </div>
+        <p id="result" class="result"></p>
+        <button onclick="nextQuestion()">下一題</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
     <footer>
         <p>版權所有 © 2024 Kuan</p>
     </footer>
