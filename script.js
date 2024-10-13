@@ -1,49 +1,82 @@
 let score = 0;
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* 背景顏色 */
-    text-align: center; /* 文字置中 */
+let currentQuestion = 0;
+const totalQuestions = 4;
+
+const questions = [
+    { image: 'images/golden retriever.jpg', correctAnswer: '金毛獵犬' },
+    { image: 'images/husky.jpg', correctAnswer: '哈士奇' },
+    { image: 'images/poodle.jpg', correctAnswer: '貴賓犬' },
+    { image: 'images/shiba inu.jpg', correctAnswer: '柴犬' },
+];
+
+// 隨機選項生成
+const allAnswers = ['哈士奇', '貴賓犬', '柴犬', '金毛獵犬'];
+
+function checkAnswer(answer) {
+    if (answer === questions[currentQuestion].correctAnswer) {
+        score += 25;
+    }
+    document.getElementById('result').innerText = `你答對了！當前分數: ${score}`;
+    document.getElementById('next-btn').style.display = 'block';
+    disableOptions();
 }
 
-h1 {
-    color: #333; /* 標題顏色 */
-    margin-top: 20px; /* 上方邊距 */
+function disableOptions() {
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => option.disabled = true);
 }
 
-#quiz-container {
-    margin: 20px auto; /* 中心對齊 */
-    padding: 20px; /* 內邊距 */
-    background-color: #fff; /* 白色背景 */
-    border-radius: 10px; /* 圓角 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
-    width: 80%; /* 寬度 */
-    max-width: 600px; /* 最大寬度 */
+function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < totalQuestions) {
+        loadQuestion();
+    } else {
+        showFinalScore();
+    }
 }
 
-.dog-image {
-    width: 300px; /* 固定寬度 */
-    height: 200px; /* 固定高度 */
-    object-fit: cover; /* 保持比例並填滿 */
-    border-radius: 10px; /* 圓角 */
-    margin-bottom: 15px; /* 下方邊距 */
+function loadQuestion() {
+    const currentQ = questions[currentQuestion];
+    document.getElementById('dog-image').src = currentQ.image;
+    document.getElementById('result').innerText = '';
+    document.getElementById('next-btn').style.display = 'none';
+    
+    const optionsContainer = document.getElementById('options');
+    optionsContainer.innerHTML = ''; // 清空現有選項
+
+    // 隨機生成選項
+    const answers = generateOptions(currentQ.correctAnswer);
+    answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.className = 'option';
+        button.innerText = answer;
+        button.onclick = () => checkAnswer(answer);
+        optionsContainer.appendChild(button);
+    });
 }
 
-.option {
-    margin: 5px; /* 按鈕間距 */
-    padding: 10px 15px; /* 按鈕內邊距 */
-    font-size: 16px; /* 字體大小 */
-    background-color: #007bff; /* 按鈕背景顏色 */
-    color: white; /* 字體顏色 */
-    border: none; /* 無邊框 */
-    border-radius: 5px; /* 圓角 */
-    cursor: pointer; /* 鼠標指針效果 */
+function generateOptions(correctAnswer) {
+    const options = new Set([correctAnswer]); // 用 Set 來避免重複
+    while (options.size < 4) {
+        const randomAnswer = allAnswers[Math.floor(Math.random() * allAnswers.length)];
+        options.add(randomAnswer);
+    }
+    return Array.from(options); // 轉換 Set 為陣列
 }
 
-.option:hover {
-    background-color: #0056b3; /* 懸停顏色 */
+function showFinalScore() {
+    document.getElementById('quiz-container').innerHTML = `
+        <h2>遊戲結束！</h2>
+        <p>你的總分是: ${score} 分</p>
+        <button onclick="restartGame()">重新開始遊戲</button>
+    `;
 }
 
-#result {
-    margin-top: 15px; /* 顯示結果的上方邊距 */
-    font-size: 18px; /* 字體大小 */
+function restartGame() {
+    score = 0;
+    currentQuestion = 0;
+    loadQuestion();
 }
+
+// 初始化第一題
+loadQuestion();
