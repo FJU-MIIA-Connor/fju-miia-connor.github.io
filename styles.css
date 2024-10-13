@@ -1,21 +1,43 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     text-align: center;
+}
+
+h1 {
+    color: #333;
 }
 
 #quiz-container {
     margin: 20px auto;
-    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .dog-image {
-    width: 100%;
-    height: auto;
+    width: 300px; /* 設定固定寬度 */
+    height: 200px; /* 設定固定高度 */
+    object-fit: cover; /* 確保圖片不失真地填滿指定的尺寸 */
 }
 
 .option {
-    margin: 10px;
-    padding: 10px 20px;
+    margin: 5px;
+    padding: 10px 15px;
     font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.option:hover {
+    background-color: #0056b3; /* 鼠標懸停顏色 */
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 18px;
 }
