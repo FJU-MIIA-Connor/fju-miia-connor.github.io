@@ -9,14 +9,16 @@ const questions = [
     { image: 'images/shiba inu.jpg', correctAnswer: '柴犬' },
 ];
 
-// 隨機選項生成
+// 所有可能的答案
 const allAnswers = ['哈士奇', '貴賓犬', '柴犬', '金毛獵犬'];
 
 function checkAnswer(answer) {
     if (answer === questions[currentQuestion].correctAnswer) {
         score += 25;
+        document.getElementById('result').innerText = `你答對了！當前分數: ${score}`;
+    } else {
+        document.getElementById('result').innerText = `答錯了！正確答案是: ${questions[currentQuestion].correctAnswer}`;
     }
-    document.getElementById('result').innerText = `你答對了！當前分數: ${score}`;
     document.getElementById('next-btn').style.display = 'block';
     disableOptions();
 }
@@ -40,7 +42,7 @@ function loadQuestion() {
     document.getElementById('dog-image').src = currentQ.image;
     document.getElementById('result').innerText = '';
     document.getElementById('next-btn').style.display = 'none';
-    
+
     const optionsContainer = document.getElementById('options');
     optionsContainer.innerHTML = ''; // 清空現有選項
 
@@ -61,7 +63,16 @@ function generateOptions(correctAnswer) {
         const randomAnswer = allAnswers[Math.floor(Math.random() * allAnswers.length)];
         options.add(randomAnswer);
     }
-    return Array.from(options); // 轉換 Set 為陣列
+    return shuffle(Array.from(options)); // 轉換 Set 為陣列並隨機排列
+}
+
+// 隨機排列數組
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 function showFinalScore() {
@@ -80,4 +91,5 @@ function restartGame() {
 
 // 初始化第一題
 loadQuestion();
+
 
