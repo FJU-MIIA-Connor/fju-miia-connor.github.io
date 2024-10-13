@@ -28,9 +28,9 @@ h1 {
 }
 
 .option {
-    margin: 5px; /* 按鈕間距 */
+    margin: 10px; /* 按鈕間距 */
     padding: 10px 15px; /* 按鈕內邊距 */
-    font-size: 16px; /* 字體大小 */
+    font-size: 30px; /* 字體大小 */
     background-color: #007bff; /* 按鈕背景顏色 */
     color: white; /* 字體顏色 */
     border: none; /* 無邊框 */
@@ -44,5 +44,5 @@ h1 {
 
 #result {
     margin-top: 15px; /* 顯示結果的上方邊距 */
-    font-size: 18px; /* 字體大小 */
+    font-size: 30px; /* 字體大小 */
 }

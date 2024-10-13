@@ -6,11 +6,11 @@ const questions = [
     { image: 'images/golden retriever.jpg', correctAnswer: '金毛獵犬' },
     { image: 'images/husky.jpg', correctAnswer: '哈士奇' },
     { image: 'images/poodle.jpg', correctAnswer: '貴賓犬' },
-    { image: 'images/shiba inu.jpg', correctAnswer: '柴犬' },
+    { image: 'images/german shepherd.jpg', correctAnswer: '德國牧羊犬' },
 ];
 
 // 隨機選項生成
-const allAnswers = ['哈士奇', '貴賓犬', '柴犬', '金毛獵犬'];
+const allAnswers = ['哈士奇', '貴賓犬', '德國牧羊犬', '金毛獵犬'];
 
 function checkAnswer(answer) {
     if (answer === questions[currentQuestion].correctAnswer) {
