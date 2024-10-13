@@ -16,7 +16,7 @@ function checkAnswer(answer) {
     if (answer === questions[currentQuestion].correctAnswer) {
         score += 25;
     }
-    document.getElementById('result').innerText = `你答對了！當前分數: ${score}`;
+    document.getElementById('result').innerText = `恭喜你！當前分數: ${score}`;
     document.getElementById('next-btn').style.display = 'block';
     disableOptions();
 }
