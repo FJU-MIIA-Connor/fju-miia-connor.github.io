@@ -1,106 +1,21 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 20px;
 }
 
-h1 {
-    color: #333;
-}
-
-.game-container {
+#quiz-container {
+    margin: 20px auto;
     max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .dog-image {
-    max-width: 100%;
-    border-radius: 10px;
-<<<<<<< HEAD
-=======
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    width: 100%;
+    height: auto;
 }
 
 .option {
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.option:hover {
-    background-color: #0056b3;
-}
-
-.result {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-button {
-    margin-top: 20px;
+    margin: 10px;
     padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
->>>>>>> 18fe68ce4e8cc51944feda096134f500c48afa49
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.option {
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.option:hover {
-    background-color: #0056b3;
-}
-
-.result {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
 }
