@@ -20,8 +20,8 @@ h1 {
 }
 
 .dog-image {
-    width: 300px; /* 固定寬度 */
-    height: 200px; /* 固定高度 */
+    width: 50px; /* 固定寬度 */
+    height: 50px; /* 固定高度 */
     object-fit: cover; /* 保持比例並填滿 */
     border-radius: 10px; /* 圓角 */
     margin-bottom: 15px; /* 下方邊距 */
