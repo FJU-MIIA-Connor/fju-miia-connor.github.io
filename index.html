@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>狗狗品種猜測遊戲</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 引入 jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>狗狗品種猜測遊戲</h1>
-    <div id="quiz-container">
-        <img id="dog-image" src="images/golden retriever.jpg" alt="Dog" class="dog-image">
-        <div id="options"></div>
-        <p id="result"></p>
-        <button id="next-btn" onclick="nextQuestion()" style="display:none;">下一題</button>
+    <div class="container">
+        <h1>狗狗品種猜測遊戲</h1>
+        <div id="quiz-container">
+            <img id="dog-image" src="images/golden retriever.jpg" alt="Dog" class="dog-image">
+            <div id="options">
+                <button class="option" onclick="checkAnswer('黃金獵犬')">黃金獵犬</button>
+                <button class="option" onclick="checkAnswer('哈士奇')">哈士奇</button>
+                <button class="option" onclick="checkAnswer('貴賓犬')">貴賓犬</button>
+                <button class="option" onclick="checkAnswer('德國牧羊犬')">德國牧羊犬</button>
+            </div>
+            <p id="result"></p>
+            <button id="next-btn" onclick="nextQuestion()" style="display:none;">下一題</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
